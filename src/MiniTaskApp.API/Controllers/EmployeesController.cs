@@ -32,14 +32,7 @@ namespace MiniTaskApp.API.Controllers
                 FirstName = e.FirstName,
                 LastName = e.LastName,
                 Email = e.Email,
-                IsActive = e.IsActive,
-                AssignedTaskItems = e.TaskItems.Select(ti => new TaskItemDto
-                {
-                    TaskItemId = ti.TaskItemId,
-                    ItemName = ti.ItemName,
-                    Status = (int)ti.Status,
-                    EmployeeId = ti.EmployeeId
-                }).ToList()
+                IsActive = e.IsActive
             });
 
             return Ok(result);

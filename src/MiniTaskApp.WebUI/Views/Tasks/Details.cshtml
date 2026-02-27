@@ -104,10 +104,10 @@
             loadEmployees();
 
             $("#btnAddItem").click(function () {
-                if ($("#employeeSelect option").length <= 1) {
-                    Swal.fire('Warning', 'Cannot add task item because there are no employees.', 'warning');
-                    return;
-                }
+                //if ($("#employeeSelect option").length <= 1) {
+                //    Swal.fire('Warning', 'Cannot add task item because there are no employees.', 'warning');
+                //    return;
+                //}
 
                 clearItemForm();
                 $("#itemModal").modal("show");
@@ -116,9 +116,8 @@
             $("#btnSaveItem").click(function () {
                 const itemName = $("#itemName").val().trim();
                 const status = $("#itemStatus").val();
-                const employeeId = $("#employeeSelect").val();
 
-                if (!itemName || status === "" || !employeeId) {
+                if (!itemName || status === "") {
                     Swal.fire('Warning', 'Please fill in all fields before saving.', 'warning');
                     return;
                 }

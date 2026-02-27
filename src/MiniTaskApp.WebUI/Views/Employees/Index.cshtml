@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary mb-0">
+            <i class="bi bi-people-fill"></i> Employees
+        </h2>
+
+        <button id="btnAddEmployee" class="btn btn-primary shadow-sm">
+            <i class="bi bi-person-plus"></i> New Employee
+        </button>
+    </div>
+
+    <!-- TABLE CARD -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+
+            <table class="table table-hover table-striped align-middle mb-0" id="employeesTable">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:15%">Employee No</th>
+                        <th style="width:25%">Name</th>
+                        <th style="width:30%">Email</th>
+                        <th style="width:15%">Status</th>
+                        <th style="width:15%" class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- EMPLOYEE MODAL -->
+<div id="employeeModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Employee Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden" id="employeeId" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Employee No</label>
+                        <input id="employeeNo" class="form-control" placeholder="EMP-001" />
+                    </div>
+
+                    <div class="col-md-6 mb-3 d-flex align-items-end">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="isActive" checked>
+                            <label class="form-check-label fw-semibold" for="isActive">
+                                Active
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">First Name</label>
+                        <input id="firstName" class="form-control" placeholder="John" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Last Name</label>
+                        <input id="lastName" class="form-control" placeholder="Doe" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Email</label>
+                    <input id="email" type="email" class="form-control" placeholder="john.doe@company.com" />
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button id="btnSaveEmployee" class="btn btn-success px-4">
+                    <i class="bi bi-check-circle"></i> Save
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Modules/employees.js"></script>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            loadEmployees();
+
+            $("#btnAddEmployee").click(function () {
+                clearEmployeeForm();
+                $("#employeeModal").modal("show");
+            });
+
+            $("#btnSaveEmployee").click(saveEmployee);
+
+        });
+    </script>
+}

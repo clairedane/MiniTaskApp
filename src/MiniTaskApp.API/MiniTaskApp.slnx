@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../MiniTaskApp.WebUI/MiniTaskApp.WebUI.csproj" Id="3692e01d-9adf-4fbf-9c9b-cc47730549ae" />
+  <Project Path="MiniTaskApp.API.csproj" />
+</Solution>

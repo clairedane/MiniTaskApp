@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Task Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <!-- TASK HEADER CARD -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+            <div id="taskHeader" class="d-flex justify-content-between align-items-center">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ITEMS HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-semibold mb-0">
+            <i class="bi bi-card-checklist text-primary"></i> Task Items
+        </h4>
+        <button id="btnAddItem" class="btn btn-primary shadow-sm">
+            <i class="bi bi-plus-circle"></i> Add Item
+        </button>
+    </div>
+
+    <!-- ITEMS TABLE -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+
+            <table class="table table-hover table-striped align-middle mb-0" id="itemsTable">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:35%">Item</th>
+                        <th style="width:20%">Status</th>
+                        <th style="width:25%">Employee</th>
+                        <th style="width:20%" class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- ITEM MODAL -->
+<div id="itemModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Item Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden" id="itemId" />
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Item Name</label>
+                    <input id="itemName" class="form-control" placeholder="Enter item name" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Status</label>
+                    <select id="itemStatus" class="form-select">
+                        <option value="0">New</option>
+                        <option value="1">In Progress</option>
+                        <option value="2">Done</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Assign Employee</label>
+                    <select id="employeeSelect" class="form-select"></select>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button id="btnSaveItem" class="btn btn-success px-4">
+                    <i class="bi bi-check-circle"></i> Save
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Modules/taskDetails.js"></script>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            loadTask();
+            loadItems();
+            loadEmployees();
+
+            $("#btnAddItem").click(function () {
+                if ($("#employeeSelect option").length <= 1) {
+                    Swal.fire('Warning', 'Cannot add task item because there are no employees.', 'warning');
+                    return;
+                }
+
+                clearItemForm();
+                $("#itemModal").modal("show");
+            });
+
+            $("#btnSaveItem").click(function () {
+                const itemName = $("#itemName").val().trim();
+                const status = $("#itemStatus").val();
+                const employeeId = $("#employeeSelect").val();
+
+                if (!itemName || status === "" || !employeeId) {
+                    Swal.fire('Warning', 'Please fill in all fields before saving.', 'warning');
+                    return;
+                }
+
+                saveItem();
+            });
+
+        });
+    </script>
+}

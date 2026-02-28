@@ -1,4 +1,4 @@
-﻿namespace MiniTaskApp.API.DTOs.Task
+﻿namespace MiniTaskApp.API.Models.DTOs.Task
 {
     public class TaskInputDto
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiniTaskApp.API.Data;
-using MiniTaskApp.API.DTOs.Task;
-using MiniTaskApp.API.DTOs.TaskItem;
+using MiniTaskApp.API.Models.DTOs.Task;
+using MiniTaskApp.API.Models.DTOs.TaskItem;
 using MiniTaskApp.API.Services;
-using TaskEntity = MiniTaskApp.API.Entities.Task;
+using TaskEntity = MiniTaskApp.API.Models.Entities.Task;
 
 namespace MiniTaskApp.API.Controllers
 {

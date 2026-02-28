@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MiniTaskApp.API.Entities;
-using TaskEntity = MiniTaskApp.API.Entities.Task;
+using MiniTaskApp.API.Models.Entities;
+using TaskEntity = MiniTaskApp.API.Models.Entities.Task;
 
 namespace MiniTaskApp.API.Data
 {

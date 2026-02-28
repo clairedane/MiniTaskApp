@@ -1,4 +1,4 @@
-﻿namespace MiniTaskApp.API.Entities
+﻿namespace MiniTaskApp.API.Models.Entities
 {
     public enum TaskItemStatus
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiniTaskApp.API.Data;
-using MiniTaskApp.API.DTOs.TaskItem;
-using MiniTaskApp.API.Entities;
+using MiniTaskApp.API.Models.DTOs.TaskItem;
+using MiniTaskApp.API.Models.Entities;
 
 namespace MiniTaskApp.API.Controllers
 {

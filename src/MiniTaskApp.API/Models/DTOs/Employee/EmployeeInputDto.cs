@@ -1,4 +1,4 @@
-﻿namespace MiniTaskApp.API.DTOs.Employee
+﻿namespace MiniTaskApp.API.Models.DTOs.Employee
 {
     public class EmployeeInputDto
     {

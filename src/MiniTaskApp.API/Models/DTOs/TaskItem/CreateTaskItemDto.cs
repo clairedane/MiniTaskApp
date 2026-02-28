@@ -1,4 +1,4 @@
-﻿namespace MiniTaskApp.API.DTOs.TaskItem
+﻿namespace MiniTaskApp.API.Models.DTOs.TaskItem
 {
     public class CreateTaskItemDto
     {

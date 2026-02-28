@@ -1,6 +1,6 @@
-﻿using MiniTaskApp.API.DTOs.TaskItem;
+﻿using MiniTaskApp.API.Models.DTOs.TaskItem;
 
-namespace MiniTaskApp.API.DTOs.Employee
+namespace MiniTaskApp.API.Models.DTOs.Employee
 {
     public class EmployeeDto
     {
